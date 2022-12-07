@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <title>文档</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            height: 70px;
+            width: 100%;
+            box-shadow: 1px 1px #888;
+        }
+        .fh{
+            height: 70px;
+            width: 70px;
+            background-color: #1762d3;
+            font-size: 20px;
+            border-style: none;
+        }
+        .kj{
+            font-size:29px;
+            float: right;
+            margin-top:15px;
+        }
+        .in{
+            text-align: center;
+            width: 60%;
+            height: 25px;
+            border-radius: 10px;
+        }
+        .sskj{
+            margin-top: 10px;
+            text-align: center;
+        }
+      a{
+        text-decoration:none;
+        color:black;
+        }
+      .im{
+        margin-left:5px;
+        margin-top:5px;
+        height:50px;
+        width:50px;
+        }
+      li{
+        margin:0 auto;
+        height:60px;
+        width:98%;
+        margin-top:10px;
+        border-style:solid;
+        border-color:#888999;
+        border-radius:10px;
+        list-style-type:none;
+        }
+      ul{
+        margin:0;
+        padding:0;
+        list-style:none;
+        }
+      .di{
+        float:left;
+        }
+      .di1{
+        float:left;
+        margin-left:5px;
+        margin-top:18px;
+        }
+      .xz{
+        float:right;
+        margin-right:10px;
+        margin-top:18px;
+        background-color:#fff;
+        border-style:none;
+        }
+      .ds{
+        float:right;
+        margin-right:10px;
+        margin-top:18px;
+        background-color:#fff;
+        border-style:none;
+        }
+      select{
+        background-color:white;
+        border-style:none;
+        font-size:29px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button class="fh" onclick="w()">
+            返回
+        </button>
+        <div class="kj">
+        频道切换:
+         <select onchange="window.location=this.value;">
+           <option value="kj.html">课件</option>            
+           <option value="" selected>文档</option>      
+           <option value="pdf.html">PDF</option>              
+         </select>
+        </div>
+    </div>
+        <marquee direction="left">🎉🎉注意，本站所有课件，文档，PDF等均可免费下载，如果您觉得可以，可以选择打赏作者.</marquee>
+        <hr>
+ <div class="sskj">
+        <input type="text" class="in" id="myInput" onkeyup="myFunction()" placeholder="请输入文档名称或输入文档提取码(区分大小写)" maxlength="32">
+ </div>
+ <ul id="myUL">
+  <li class="w"><div class="di"><img src="word.jpeg" class="im"/></div><div class="di1">文档名:<a href="#">Python常用代码(202201207py)</a></div><button class="xz"><a href="wd/Python常用代码.doc" download="Python常用代码.doc">下载资源</a></button><button class="ds" onclick="window.location.href='https://www.zhihu.com'">打赏作者</button></li>
+</ul>
+</body>
+<script>
+    function w(){
+        window.location.href="index.html";
+        alert("确定要返回吗？")
+    }
+function myFunction() {
+  // 声明变量
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+ 
+  // 循环遍历所有列表项，并隐藏那些与搜索查询不匹配的项
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
+</html>

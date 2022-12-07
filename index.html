@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我的博客</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body Onresize="resizeFresh()">
+    <div id="header">
+        <div class="nav">
+            <a href="index.html" class="logo">YaoYao</a>
+            <div id="nav-btn" class="btn">
+               <img src="logo.jpeg" alt="欢迎来到我的世界" style="margin:5px;width:30px;height:30px;">
+            </div>
+            <ul class="nav-bar">
+               <li><a href="index.html">首页</a></li>
+               <li><a href="kj.html">课件</a></li>
+               <li><a href="wd.html">文档</a></li>
+               <li><a href="pdf.html">PDF</a></li>
+               <li><a href="">精品</a></li>
+               <li><a href="">资源</a></li>
+               <li><a href="">简介</a></li>
+               <li><a href="javascript:void(0)" onclick="alert('如果您在使用中遇到了问题，请将问题提交至邮箱zry110522@163.com作者将竭尽全力为您解决问题.')">帮助</a></li>
+               <li><a href="javascript:void(0)" onclick="alert('如果您想要在此站上传文件，请将文件发送至邮箱zry110522@163.com审核，通过后将上传到此站点.')">上传</a></li>
+            </ul>
+        </div>
+    </div>
+    <marquee direction="left">🎉🎉注意，本站所有课件，文档，PDF等均可免费下载，如果您觉得可以，可以选择打赏作者.</marquee>
+    <hr>
+</body>
+<script type="text/javascript">
+    //开关状态情况
+    var open = false;
+    $('#nav-btn').click(function(){
+       $(this).css("background-color", open ? '#fff' : '#fff');
+       var navBar = $('.nav-bar');
+       var height = navBar.offset().top + navBar.height();
+       $('#header').animate({
+            height: open ? 50 :height
+        });
+        open = !open;
+    })
+//窗口大小变化时候，进行刷新页面操作，防止样式混乱
+var x=window.innerWidth;
+        function resizeFresh(){
+            if(x!=window.innerWidth)
+                location.reload();
+        }
+</script>
+</html>
